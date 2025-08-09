@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okke Sheriyavum</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb86b 0%, #4f8cff 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(255,59,59,0.12);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            margin-bottom: 24px;
+        }
+        h1 {
+            color: #ff3b3b;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #2563eb;
+            margin-bottom: 0;
+        }
+        button {
+            background: linear-gradient(135deg, #f4f6fb 60%, #e0e7ef 100%);
+            color: #2563eb;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 60px 60px 80px 80px / 80px 80px 60px 60px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 8px 32px #b6c2d6cc, 0 2px 8px #fff;
+            margin-top: 28px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        button:hover {
+            box-shadow: 0 16px 48px #b6c2d6ee, 0 4px 16px #fff;
+            transform: scale(1.08);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 8px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/mylogo.jpg" alt="Okke Sheriyavum Logo" class="logo">
+        <h1>Okke Sheriyavum</h1>
+        <p>Welcome to Okke Sheriyavum!<br>
+        This project is a collection of problems, memes, and images curated for fun and learning.<br>
+        Explore, enjoy, and share your thoughts!</p>
+    <button onclick="window.location.href='problems.html'" style="margin-top:28px;padding:12px 32px;font-size:1rem;font-family:inherit;background:#6366f1;color:#fff;border:none;border-radius:8px;cursor:pointer;box-shadow:0 2px 8px rgba(99,102,241,0.10);transition:background 0.2s;">Parayuuu Makaneee!</button>
+    </div>
+</body>
+</html>

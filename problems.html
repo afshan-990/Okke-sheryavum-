@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Problems - Okke Sheriyavum</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb86b 0%, #4f8cff 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(255,59,59,0.12);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        h1 {
+            color: #ff3b3b;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+        }
+        label {
+            font-weight: 600;
+            color: #4f8cff;
+            font-size: 1.1rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 80px;
+            border-radius: 10px;
+            border: 1px solid #4f8cff44;
+            font-size: 1.1rem;
+            padding: 0.7rem;
+            margin-bottom: 1.2rem;
+            background: #fff;
+        }
+        button {
+            background: linear-gradient(135deg, #f4f6fb 60%, #e0e7ef 100%);
+            color: #2563eb;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 60px 60px 80px 80px / 80px 80px 60px 60px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 8px 32px #b6c2d6cc, 0 2px 8px #fff;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        button:hover {
+            box-shadow: 0 16px 48px #b6c2d6ee, 0 4px 16px #fff;
+            transform: scale(1.08);
+        }
+        button.pop {
+            animation: pop 0.2s;
+        }
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+            100% { transform: scale(1); }
+        }
+        .meme-solution {
+            margin-top: 2rem;
+            padding: 1.2rem;
+            background: #f9fafb;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #4f8cff22;
+        }
+        .meme-solution img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .meme-solution p {
+            font-size: 1.1rem;
+            color: #2563eb;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>List Your Problems</h1>
+        <label for="problem-input">What's bothering you? Type your problem below:</label><br>
+        <textarea id="problem-input" placeholder="E.g. I failed my exam, my boss is angry, etc..."></textarea><br>
+        <hr style="margin:2rem 0;">
+        <button id="solve-btn">Give Me a Meme Solution!</button>
+        <div id="solution" class="meme-solution" style="display:none;"></div>
+    </div>
+
+    <script>
+        // Pre-load memes from local files
+        const memes = [
+            { img: 'images/meme1.jpg' },
+            { img: 'images/meme2.jpg' },
+            { img: 'images/meme3.jpg' },
+            { img: 'images/meme4.jpg' },
+            { img: 'images/meme5.jpg' },
+            { img: 'images/meme6.jpg' }
+        ];
+
+        const solveBtn = document.getElementById('solve-btn');
+
+        solveBtn.onclick = function() {
+            solveBtn.classList.add('pop');
+            setTimeout(() => solveBtn.classList.remove('pop'), 200);
+
+            const problem = document.getElementById('problem-input').value.trim();
+            if (!problem) {
+                alert('Please type your problem!');
+                return;
+            }
+
+            const meme = memes[Math.floor(Math.random() * memes.length)];
+
+            // Generate a funny + motivational caption
+            let generatedCaption = '';
+            if (problem.toLowerCase().includes('exam')) {
+                generatedCaption = "Don't worry, even the toughest exams are just chapters, not the whole book!";
+            } else if (problem.toLowerCase().includes('boss')) {
+                generatedCaption = "A tough boss today is a funny story tomorrow. Keep going!";
+            } else if (problem.toLowerCase().includes('love')) {
+                generatedCaption = "Love problems? The right meme will never ghost you!";
+            } else if (problem.toLowerCase().includes('money')) {
+                generatedCaption = "Money can’t buy happiness, but it can buy pizza… and that’s close enough!";
+            } else if (problem.toLowerCase().includes('friend')) {
+                generatedCaption = "True friends share memes, not drama!";
+            } else if (problem.toLowerCase().includes('sad')) {
+                generatedCaption = "Sad? Memes are like hugs you can scroll!";
+            } else {
+                generatedCaption = "Life throws problems, we throw memes!";
+            }
+
+            document.getElementById('solution').innerHTML =
+                `<img src="${meme.img}" alt="Meme">
+                 <p><span style='color:#ff3b3b;'>(${problem})</span><br><b>${generatedCaption}</b></p>`;
+            document.getElementById('solution').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
